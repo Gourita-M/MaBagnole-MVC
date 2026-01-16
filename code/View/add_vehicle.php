@@ -1,5 +1,17 @@
 <?php 
 
+    require_once __DIR__ . '/../../vendor/autoload.php';
+    
+    use code\controlls\AddVehicleController;
+    
+    $Vehiclesadd = new AddVehicleController;
+    $categories = $Vehiclesadd->showCategories();
+
+    print_r($categories);
+    if(isset($_POST['add'])){
+        
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,12 +56,9 @@
             required
             >
             <option value="" disabled selected>Select category</option>
-            <option value="sedan">Sedan</option>
-            <option value="suv">SUV</option>
-            <option value="hatchback">Hatchback</option>
-            <option value="coupe">Coupe</option>
-            <option value="convertible">Convertible</option>
-            <option value="truck">Truck</option>
+        <?php foreach($categories as $catego): ?>
+            <option value="<?= htmlspecialchars($catego['id']) ?>"><?= htmlspecialchars($catego['cate_name']) ?></option>
+        <?php endforeach; ?>
         </select>
 
 
@@ -75,6 +84,7 @@
       </button>
 
       <button
+        name="add"
         type="submit"
         class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
       >

@@ -1,6 +1,19 @@
 <?php
   session_start();
-  include_once "./controlls/admin_logic.php";
+ 
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+use code\controlls\AdminController;
+
+$controller = new AdminController();
+
+$data = $controller->addVehicle();
+
+$vehicledata  = $data['vehicles'];
+$categorydata = $data['categories'];
+$reserdata    = $data['reservations'];
+$revidate     = $data['reviews'];
+
 ?>
 
 <!DOCTYPE html>
