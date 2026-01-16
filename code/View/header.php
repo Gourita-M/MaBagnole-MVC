@@ -24,7 +24,7 @@
           👋 {$_SESSION['username']}
         </span>
 
-        <a href='./controlls/logout.php'
+        <a href='./controlls/Logout.php'
           class='bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-400 transition'>
           Logout
         </a>

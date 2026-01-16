@@ -7,7 +7,6 @@
     $Vehiclesadd = new AddVehicleController;
     $categories = $Vehiclesadd->showCategories();
 
-    print_r($categories);
     if(isset($_POST['add'])){
         
     }

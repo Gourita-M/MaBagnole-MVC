@@ -7,6 +7,16 @@ use code\models\Reservation;
 use code\models\Review;
 
 
+Class Rented_Logic 
+{
+
+    private $Reservation;
+    private $Review;
+
+    
+}
+
+
     $rented = new Reservation;
     $review = new Review;
 

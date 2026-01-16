@@ -50,12 +50,5 @@ Class AuthController
 
 }
 
-$login = new AuthController;
-
-        if(isset($_POST['login']))
-            $login->login();
-
-        if(isset($_POST['register']))
-            $login->register();
 
 ?>

@@ -21,7 +21,7 @@ Class AddVehicleController
         return $this->Category->getCategories();
   }
 
-  public function addVehicle()
+  public function addVehicle() //fix it later
   {
         // $this->Vehicle->model = ;
         // $this->Vehicle->price_day = ;

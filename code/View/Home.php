@@ -1,5 +1,16 @@
 <?php 
-  include_once "./controlls/login_register.php";
+
+require_once __DIR__ . '/../../vendor/autoload.php';
+  use code\controlls\AuthController;
+
+  $login = new AuthController;
+
+        if(isset($_POST['login']))
+            $login->login();
+
+        if(isset($_POST['register']))
+            $login->register();
+        
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +48,7 @@
             👋 {$_SESSION['username']}
           </span>
 
-          <a href='./controlls/logout.php'
+          <a href='./controlls/Logout.php'
             class='bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-400 transition'>
             Logout
           </a>
