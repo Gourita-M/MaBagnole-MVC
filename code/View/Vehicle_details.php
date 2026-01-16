@@ -1,6 +1,11 @@
 <?php 
     session_start();
-    include_once "./controlls/vehicles_logic.php";
+    require_once __DIR__ . '/../../vendor/autoload.php';
+    use code\controlls\VehiclesController;
+
+    $vehi = new VehiclesController;
+
+    $data = $vehi->getVehicle($id);
 ?>
 
 <!DOCTYPE html>

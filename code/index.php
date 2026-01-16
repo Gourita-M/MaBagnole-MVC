@@ -20,6 +20,7 @@ switch ($parts[3]) {
         break;
 
     case 'delete_review':
+        $id = "$parts[4]";
         require './View/delete_review.php';
         break;
 
@@ -48,6 +49,11 @@ switch ($parts[3]) {
     case 'delete_Vehicle':
         $id = "$parts[4]";
         require './View/delete_Vehicle.php';
+        break;
+
+    case 'edit_review':
+        $id = "$parts[4]";
+        require './View/edit_review.php';
         break;
 
     case 'add_vehicle':

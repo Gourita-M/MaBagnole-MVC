@@ -1,6 +1,20 @@
 <?php 
   session_start();
-  include_once "./controlls/Reservation_logic.php";
+  require_once __DIR__ . '/../../vendor/autoload.php';
+    use code\controlls\ReservationController;
+    use code\controlls\VehiclesController;
+
+    $vehic = new VehiclesController;
+    $reserve = new ReservationController;
+
+    $datavehicle = $vehic->getVehicle($id);
+
+    print_r($datavehicle);
+
+    if(isset($_POST['reserve'])){
+        $reserve->addReservation($id);
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -76,19 +90,19 @@
       <h3 class="text-xl font-semibold mb-4">Vehicle Summary</h3>
 
       <img
-        src="<?= $datavehicle['Vehicle_image'] ?>"
+        src="<?= $datavehicle[0]['Vehicle_image'] ?>"
         class="rounded-lg mb-4"
         alt="Car">
 
       <h4 class="text-lg font-bold text-yellow-400">
-        <?= $datavehicle['model'] ?>
+        <?= $datavehicle[0]['model'] ?>
       </h4>
 
       <div class="border-t border-gray-700 pt-4 space-y-2 text-sm">
         <div class="flex justify-between">
           <span>Price / day</span>
           <div>
-            <span class="prix text-yellow-400"><?= $datavehicle['price_day'] ?></span>
+            <span class="prix text-yellow-400"><?= $datavehicle[0]['price_day'] ?></span>
             <span class="text-yellow-400">DH</span>
           </div>
           

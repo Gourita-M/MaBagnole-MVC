@@ -1,6 +1,7 @@
 <?php 
 
 require_once __DIR__ . '/../../vendor/autoload.php';
+
   use code\controlls\AuthController;
 
   $login = new AuthController;

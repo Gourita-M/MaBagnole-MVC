@@ -1,6 +1,14 @@
 <?php
   session_start();
-  include_once "./controlls/rented_logic.php";
+  require_once __DIR__ . '/../../vendor/autoload.php';
+  use code\controlls\RentedController;
+
+  $rented = new RentedController;
+  $data = $rented->showReservations();
+
+  if(isset($_POST['subreview'])){
+    $rented->editReviews();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +23,6 @@
 
 <?php include_once "./View/header.php"; ?>
 
-<!-- DELETE REVIEW MODAL -->
 <div id="deleteReviewModal"
      class="fixed inset-0 hidden z-50
             bg-black/60
@@ -100,7 +107,6 @@
 
     <?php 
       foreach($data as $da){
-      if($da['reservation_id'] != null){
         echo "
           <article class='bg-gray-800 rounded-lg shadow p-5 flex flex-col'>
             <img
@@ -115,14 +121,13 @@
         ";
 
           if($da['reviews_comment'] != null ){
-            if($da['deleted_at'] === null){
             echo "
               <div class='bg-gray-900 rounded p-3 mb-2'>
                 <h4 class='text-yellow-400 font-semibold mb-1'>Your Review</h4>
+                <span class='text-yellow-400 mr-2'>{$da['rating']} / 5</span>
                 <div class='flex items-center mb-2'>
-                  <span class='text-yellow-400 mr-2'>⭐⭐⭐⭐⭐</span>
-                  <a class='text-blue-400 hover:underline mr-3'>Edit</a>
-                  <a href='./delete_review.php?id={$da['reviews_id']}' class='text-red-500 hover:underline'>Delete</a>
+                  <a href='./edit_review/{$da['reviews_id']}' class='text-blue-400 hover:underline mr-3'>Edit</a>
+                  <a href='./delete_review/{$da['reviews_id']}' class='text-red-500 hover:underline'>Delete</a>
                 </div>
                 <p class='text-gray-300'>{$da['reviews_comment']}.</p>
               </div>
@@ -138,47 +143,11 @@
                   name='rating'
                 >
                   <option value='' disabled selected>Rate</option>
-                  <option value='1'>1 ⭐</option>
-                  <option value='2'>2 ⭐⭐</option>
-                  <option value='3'>3 ⭐⭐⭐</option>
-                  <option value='4'>4 ⭐⭐⭐⭐</option>
-                  <option value='5'>5 ⭐⭐⭐⭐⭐</option>
-                </select>
-
-                <textarea
-                  name='review'
-                  rows='3'
-                  placeholder='Write your review...'
-                  class='bg-gray-700 text-yellow-400 rounded px-3 py-2 border border-gray-600 resize-none focus:ring-2 focus:ring-yellow-500 outline-none'
-                  required
-                ></textarea>
-
-                <button
-                  name='subreview'
-                  type='submit'
-                  class='bg-yellow-500 text-black font-semibold px-4 py-2 rounded hover:bg-yellow-400 transition'
-                >
-                  Submit Review
-                </button>
-              </form>
-            ";
-            }
-          }else{
-              echo "
-              <form method='POST' class='flex flex-col gap-3'>
-                <label class='text-yellow-400 font-semibold'>Add Your Review</label>
-                <input type='hidden' name='vehiid' value='{$da['vehicle_id']}'>
-                <select
-                  class='bg-gray-700 text-yellow-400 rounded px-3 py-2 border border-gray-600 focus:ring-2 focus:ring-yellow-500 outline-none'
-                  required
-                  name='rating'
-                >
-                  <option value='' disabled selected>Rate</option>
-                  <option value='1'>1 ⭐</option>
-                  <option value='2'>2 ⭐⭐</option>
-                  <option value='3'>3 ⭐⭐⭐</option>
-                  <option value='4'>4 ⭐⭐⭐⭐</option>
-                  <option value='5'>5 ⭐⭐⭐⭐⭐</option>
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                  <option value='4'>4</option>
+                  <option value='5'>5</option>
                 </select>
 
                 <textarea
@@ -201,9 +170,6 @@
         echo "
           </article>
         ";
-      }else{
-      echo "<h1'>You don't Have Any Rented Cars</h1>";
-    }
     }
     ?>
     

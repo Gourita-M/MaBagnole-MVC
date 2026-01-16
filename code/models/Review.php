@@ -94,7 +94,29 @@ Class Review
 
 //editReview
 
+    public function editReview(): bool
+    {
+        try{
 
+            $sql = "UPDATE reviews 
+                    SET rating = ? , reviews_comment = ? 
+                    WHERE reviews_id = ? ";
+            
+            $stmt = DataBase::Connect()->prepare($sql);
+
+            $stmt->execute([
+                $this->rating,
+                $this->reviews_comment,
+                $this->review_id
+            ]);
+
+                return true;
+
+        }catch(pdoexception $e){
+
+                return false;
+        }
+    }
 
 //getByVehicleid
 
@@ -139,7 +161,9 @@ Class Review
                     v.vehicle_status,
                     v.Vehicle_image,
                     r.reviews_comment,
-                    u.user_name
+                    u.user_name,
+                    r.deleted_at,
+                    r.reviews_id
                     FROM vehicles v
                     LEFT JOIN reviews r 
                     ON v.vehicle_id = r.vehicle_id
