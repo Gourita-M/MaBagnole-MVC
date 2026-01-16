@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include_once "../controlls/rented_logic.php";
+  include_once "./controlls/rented_logic.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +13,7 @@
 
 <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col">
 
-<?php include_once "./header.php"; ?>
+<?php include_once "./View/header.php"; ?>
 
 <!-- DELETE REVIEW MODAL -->
 <div id="deleteReviewModal"

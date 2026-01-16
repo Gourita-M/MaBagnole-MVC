@@ -10,11 +10,11 @@ use code\models\Vehicles;
     $vehicle = new Vehicles;
     $reservetion = new Reservation;
 
-    $datavehicle = $vehicle->findVehicleById($_GET['id']);
+    $datavehicle = $vehicle->findVehicleById($id);
  
     if(isset($_POST['reserve'])){
         
-        $reservetion->vehicleid = $_GET['id'];
+        $reservetion->vehicleid = $id;
         $reservetion->start_date = $_POST['pickup'];
         $reservetion->end_date = $_POST['back'];
         $reservetion->location = $_POST['picklocation'];

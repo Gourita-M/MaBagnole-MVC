@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include_once "../controlls/vehicles_logic.php";
+    include_once "./controlls/vehicles_logic.php";
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 
 <body class="bg-gray-900 text-gray-100 min-h-screen">
 
-<?php include_once "./header.php"; ?>
+<?php include_once "./View/header.php"; ?>
 
 <!-- MAIN -->
 <main class="max-w-7xl mx-auto px-6 py-10">
@@ -71,7 +71,7 @@
         <?php 
         if(isset($_SESSION['role'])){
           echo "
-          <a href='./rent.php?id={$_GET['id']}'
+          <a href='../rent/{$id}'
             class='block w-full text-center bg-yellow-500 text-black py-3 rounded-xl font-semibold hover:bg-yellow-400 transition'>
             Rent This Car
         </a>

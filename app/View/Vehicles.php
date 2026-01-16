@@ -1,7 +1,7 @@
 <?php 
   session_start();
 
-  include_once "../controlls/vehicles_pagination.php";
+  include_once "./controlls/vehicles_pagination.php";
 
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 </head>
 <body class="bg-gray-900 text-gray-100">
 
-<?php include_once "./header.php"; ?>
+<?php include_once "./View/header.php"; ?>
 <!-- AUTH MODAL -->
 <div id="auth-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
   <div class="bg-gray-800 rounded-xl shadow-2xl w-full max-w-md p-6 relative text-gray-100">
@@ -135,7 +135,7 @@
         <td><?= $v['price_day'] ?> DH</td>
         <td><?= $v['vehicle_status'] ?></td>
         <td>
-          <a href="./Vehicle_details.php?id=<?= $v['vehicle_id'] ?>"
+          <a href="./vehicle_details/<?= $v['vehicle_id'] ?>"
            class="mt-4 inline-block bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold
                   hover:bg-yellow-400 transition">
           View Details

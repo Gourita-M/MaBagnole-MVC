@@ -52,7 +52,6 @@ Class AuthController
 
 $login = new AuthController;
 
--
         if(isset($_POST['login']))
             $login->login();
 

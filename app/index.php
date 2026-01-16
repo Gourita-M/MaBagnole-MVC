@@ -24,6 +24,7 @@ switch ($parts[3]) {
         break;
 
     case 'rent':
+        $id = "$parts[4]";
         require './View/rent.php';
         break;
 
@@ -32,6 +33,7 @@ switch ($parts[3]) {
         break;
 
     case 'vehicle_details':
+        $id = "$parts[4]";
         require './View/Vehicle_details.php';
         break;
 

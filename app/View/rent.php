@@ -1,6 +1,6 @@
 <?php 
   session_start();
-  include_once "../controlls/Reservation_logic.php";
+  include_once "./controlls/Reservation_logic.php";
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 
 <body class="bg-gray-900 text-gray-100 min-h-screen">
 
-<?php include_once "./header.php"; ?>
+<?php include_once "./View/header.php"; ?>
 
 <main class="max-w-6xl mx-auto px-6 py-10">
 

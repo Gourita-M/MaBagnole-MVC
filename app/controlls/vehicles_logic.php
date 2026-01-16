@@ -8,6 +8,6 @@ use code\models\Review;
 
     $review = new Review;
 
-    $data = $review->getByVehicleid($_GET['id']);
+    $data = $review->getByVehicleid($id);
 
 ?>

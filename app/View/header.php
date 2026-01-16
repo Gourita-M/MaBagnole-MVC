@@ -3,14 +3,14 @@
     <h1 class="text-2xl font-bold text-yellow-400">MaBagnole</h1>
 
     <nav class="space-x-6 hidden md:block">
-      <a href="Home" class="hover:text-yellow-400 text-white transition">Home</a>
+      <a href="./Home" class="hover:text-yellow-400 text-white transition">Home</a>
       <?php 
       if(isset($_SESSION['role'])){
       if($_SESSION['role'] === 'admin'){
         echo '<a href="../View/admin.php" class="hover:text-yellow-400 text-white transition">Dashboard</a>';
       }else{
-        echo '<a href="../View/rented.php" class="hover:text-yellow-400 text-white transition">Rented</a>
-              <a href="../View/Vehicles.php" class="hover:text-yellow-400 text-white transition">Vehicles</a>';
+        echo '<a href="../rented" class="hover:text-yellow-400 text-white transition">Rented</a>
+              <a href="./vehicle" class="hover:text-yellow-400 text-white transition">Vehicles</a>';
       }
     }else echo '<a href="../View/contact.php" class="hover:text-yellow-400 text-white transition">Contact</a>';
     ?>
@@ -24,7 +24,7 @@
           👋 {$_SESSION['username']}
         </span>
 
-        <a href='../controlls/logout.php'
+        <a href='./controlls/logout.php'
           class='bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-400 transition'>
           Logout
         </a>

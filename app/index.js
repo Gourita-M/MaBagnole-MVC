@@ -79,7 +79,7 @@ function showVehicles(car) {
           ${car.model}
         </h4>
 
-        <a href="./View/Vehicle_details.php?id=${car.vehicle_id}"
+        <a href="vehicle_details/${car.vehicle_id}"
            class="mt-4 inline-block bg-yellow-500 text-black px-4 py-2 rounded-lg font-semibold
                   hover:bg-yellow-400 transition">
           View Details
