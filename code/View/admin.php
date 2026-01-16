@@ -49,9 +49,7 @@
 
   <!-- BULK INSERT -->
   <div class="bg-gray-800 p-4 rounded-lg mb-6">
-    <h3 class="font-semibold mb-2 text-yellow-400">Bulk Insert Vehicles</h3>
-    <input type="file" class="w-full bg-gray-700 p-2 rounded" />
-    <button class="btn-primary mt-3">Upload CSV</button>
+    <a href="./add_vehicle" class="btn-primary mt-3"> Add New Vehicle </a>
   </div>
 
   <table class="table">

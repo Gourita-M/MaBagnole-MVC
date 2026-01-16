@@ -50,6 +50,10 @@ switch ($parts[3]) {
         require './View/delete_Vehicle.php';
         break;
 
+    case 'add_vehicle':
+        require './View/add_vehicle.php';
+        break;
+
     default:
         http_response_code(404);
         echo "404 - Page not found";

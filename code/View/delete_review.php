@@ -1,7 +1,7 @@
 <?php 
     session_start();
-    include_once "../config/database.php";
-    include_once "../models/Review.php";
+
+use code\models\Review;
 
     $review = new Review;
 
