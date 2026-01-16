@@ -1,7 +1,12 @@
 <?php 
     session_start();
    
+    require_once __DIR__ . '/../../vendor/autoload.php';
 use code\controlls\RentedController;
+
+    //$ejhrg = new RentedController;
+
+    //$review = $ejhrg->showReviews($id);
 
     // $reviews = new Review;
 

@@ -14,9 +14,9 @@ Class ReviewController
         $this->Review = new Review;
     }
 
-    public function showReviews()
+    public function showReviews($id)
     {
-
+        $this->Review->getByVehicleid($id);
     }
 }
 ?>
